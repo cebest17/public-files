@@ -212,6 +212,8 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {opacity:0.5;}
 .fnt_80 { font-size:80px;line-height: 1.2;}
 
 @media only screen and (max-width: 1950px) {
+  .fnt_18 { font-size:16px;}
+  .fnt_20 { font-size:18px;}
   .fnt_22 { font-size:20px;}
 
   .fnt_24 { font-size:22px;}
