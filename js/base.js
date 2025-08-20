@@ -22,8 +22,7 @@ $(function(){
       headerSelector,
       hideClass,
       whiteClass,
-      hideThreshold,
-      whiteThreshold
+      hideThreshold
     } = options;
 
     const header = document.querySelector(headerSelector);
@@ -43,6 +42,10 @@ $(function(){
         if (currentScrollTop > lastScrollTop) {
           // 向下滚动
           header.classList.add(hideClass);
+          setTimeout(function() {
+              header.classList.add(whiteClass);
+          }, 1000);
+          
         } else {
           // 向上滚动
           header.classList.remove(hideClass);
@@ -50,15 +53,9 @@ $(function(){
       } else {
         // 在顶部阈值内
         header.classList.remove(hideClass);
-      }
-      lastScrollTop = currentScrollTop;
-
-      // 导航栏背景色切换逻辑
-      if (currentScrollTop > whiteThreshold) {
-        header.classList.add(whiteClass);
-      } else {
         header.classList.remove(whiteClass);
       }
+      lastScrollTop = currentScrollTop;
     });
   }
 
@@ -68,7 +65,6 @@ $(function(){
       hideClass: 'hideHeader', // 隐藏导航栏的CSS类
       hideThreshold: 50, //触发隐藏的滚动距离（像素）
       whiteClass: 'white', //导航栏变白的CSS类
-      whiteThreshold: 10 //触发变白的滚动距离（像素）
     });
 
   
