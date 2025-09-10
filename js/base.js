@@ -66,46 +66,6 @@ $(function () {
   arr = url_location.split('/');
 })
 
-function handleScrollBehavior(options) {
-  const {
-    headerSelector,
-    hideClass,
-    whiteClass,
-    hideThreshold
-  } = options;
-
-  const header = document.querySelector(headerSelector);
-  if (!header) {
-    console.error('Header element not found:', headerSelector);
-    return;
-  }
-
-  let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-  // 监听滚动事件
-  window.addEventListener('scroll', function () {
-    const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-    // 导航栏隐藏/显示逻辑
-    if (currentScrollTop > hideThreshold) {
-      if (currentScrollTop > lastScrollTop) {
-        // 向下滚动
-        header.classList.add(hideClass);
-        header.classList.add(whiteClass);
-
-      } else {
-        // 向上滚动
-        header.classList.remove(hideClass);
-      }
-    } else {
-      // 在顶部阈值内
-      header.classList.remove(hideClass);
-      header.classList.remove(whiteClass);
-    }
-    lastScrollTop = currentScrollTop;
-  });
-}
-
 
 /* -------------------- IE10以下浏览器提示 */
 function hiUpgrade() {
